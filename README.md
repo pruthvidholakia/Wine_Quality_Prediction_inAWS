@@ -1,4 +1,4 @@
-**Wine Quality Prediction on AWS**
+***Wine Quality Prediction on AWS***
 
 **Introduction**
 
