@@ -1,5 +1,7 @@
 ***Wine Quality Prediction on AWS***
 
+(refer ReadMe.pdf for better clarification)
+
 **Introduction**
 
 The goal of this project is to develop a machine learning (ML) model for predicting wine quality using Apache Spark on AWS EMR. The assignment involves parallel training on a Spark cluster managed by EMR, single-node predictions, Docker containerization for deployment, and sharing the code repository on GitHub for collaboration and evaluation.  
