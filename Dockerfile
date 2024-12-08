@@ -66,4 +66,3 @@ WORKDIR /code
 
 # Sequentially run training and testing scripts
 ENTRYPOINT ["/bin/bash", "-c", "/opt/spark/bin/spark-submit /code/src/train_wineQuality.py && /opt/spark/bin/spark-submit /code/src/predict_wineQuality.py"]
-

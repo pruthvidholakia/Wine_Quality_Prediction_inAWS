@@ -28,9 +28,19 @@ raw_val_data = clean_column_names(raw_val_data)
 # Add the `alcohol_density_ratio` feature
 raw_val_data = raw_val_data.withColumn("alcohol_density_ratio", col("alcohol") / col("density"))
 
-# Drop unnecessary columns and convert `quality` to binary labels
+# Drop unnecessary columns to match training preprocessing
 columns_to_drop = ['residual sugar', 'free sulfur dioxide']
 raw_val_data = raw_val_data.drop(*columns_to_drop)
+
+# Ensure feature selection matches the training phase
+feature_columns = [
+    "fixed acidity", "volatile acidity", "citric acid", 
+    "chlorides", "total sulfur dioxide", "density", 
+    "pH", "sulphates", "alcohol", "alcohol_density_ratio"
+]
+raw_val_data = raw_val_data.select(*feature_columns, "quality")
+
+# Convert `quality` to binary labels
 raw_val_data = raw_val_data.withColumn("label", when(col("quality") >= 7, 1).otherwise(0))
 
 # Use the trained pipeline for preprocessing and prediction
