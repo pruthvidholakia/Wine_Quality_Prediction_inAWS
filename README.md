@@ -25,12 +25,12 @@ Create an S3 bucket in our aws cloud to store training/predicting script, datase
 
 - S3 bucket as aws: pa2winequalitybucket  
 
-2. **Create Key-pair for our EMR cluster**
+1. **Create Key-pair for our EMR cluster**
 
 - EC2 > Network > Key-pairs
 - Create key as: - pa2_pruthvidholkia_WineQuality.pem  
 
-3. **Now let’s create an EMR cluster as per project requirement for parallel job**
+1. **Now let’s create an EMR cluster as per project requirement for parallel job**
 
 - Name: **my_cluster_wineQuality_predict_18**
 - Create Cluster > Application bundle custom (Hadoop, spark) > OS (Amazon Linux)
@@ -43,7 +43,7 @@ browse and select different region if cluster gets terminated because of instanc
 - IAM Role > EMR_DefaultRole
 
 
-4. **Parallel Model Training on EMR and Predicting**
+1. **Parallel Model Training on EMR and Predicting**
 
 After creating cluster upload your training.py and predicting.py and both the datasets to your s3 because now we will run our cluster and train our model parallelly in 4 instances.
 
@@ -60,7 +60,7 @@ pip install pandas
     spark-submit s3://pa2winequalitybucket/train_wineQuality.py
 
 
-5. **Now Let’s test our model on validation dataset**
+1. **Now Let’s test our model on validation dataset**
 
 - Pass this cmd in your Putty terminal as you did for training part:  
     spark-submit s3://pa2winequalitybucket/predict_wineQuality.py
@@ -68,7 +68,7 @@ pip install pandas
 Once the predict_wineQuality runs successfully in your EMR you could see **f1 score** as below:
 - This prediction will run on single ec2 instance the master node or master ec2 as per project requirement and how we achieve this in predict file you should see this:
 
-6. **Docker Containerization (Running application with Docker)**
+1. **Docker Containerization (Running application with Docker)**
 
 Objective: Package the prediction application for deployment.
 
